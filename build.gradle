@@ -1,0 +1,55 @@
+plugins {
+  id "me.champeau.gradle.jmh" version "0.4.6"
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    group = 'me.champeau.sample'
+    version = '1.0-SNAPSHOT'
+
+    sourceCompatibility = targetCompatibility = 1.8
+
+   repositories {
+        jcenter()
+    }
+}
+
+dependencies {
+    jmh 'ai.h2o:h2o-core:3.2.0.5'
+    jmh group: 'commons-io' , name: 'commons-io', version: '2.4'
+    jmh group: 'org.openjdk.jmh', name: 'jmh-generator-annprocess', version: '1.12'
+}
+
+apply plugin: 'me.champeau.gradle.jmh'
+
+jmh {
+    //humanOutputFile = null
+    warmupIterations = 1
+    iterations = 1
+    jmhVersion = '1.11.3'
+    resultFormat = 'TEXT'
+    resultsFile = file("results/${System.getProperty('java.version')}.txt")
+    exclude = 'ListGetBenchmarkJMH'
+    jvmArgs = '-Xms8g -Xmx8g'
+}
+
+// it is possible to tweak the jmhJar task directly
+jmhJar.baseName = 'custom'
+
+subprojects {
+    apply plugin: 'me.champeau.gradle.jmh'
+
+    jmh {
+        //humanOutputFile = null
+        warmupIterations = 1
+        iterations = 1
+        jmhVersion = '1.11.3'
+        resultFormat = 'TEXT'
+        resultsFile = file("results/${System.getProperty('java.version')}.txt")
+        exclude = 'ListGetBenchmarkJMH'
+        jvmArgs = '-Xms8g -Xmx8g'
+    }
+
+}

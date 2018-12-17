@@ -1,0 +1,16 @@
+Benchmark                                                          (collection)  Mode  Cnt     Score      Error  Units
+CollectionToList.new_ArrayList_add                                    ArrayList  avgt   10    69.172 ±    8.176  us/op
+CollectionToList.new_ArrayList_add                                      HashSet  avgt   10   218.808 ±   79.743  us/op
+CollectionToList.new_ArrayList_addAll                                 ArrayList  avgt   10    33.285 ±   40.508  us/op
+CollectionToList.new_ArrayList_addAll                                   HashSet  avgt   10   203.240 ±   34.646  us/op
+CollectionToList.new_ArrayList_from_Collection                        ArrayList  avgt   10    15.048 ±   25.808  us/op
+CollectionToList.new_ArrayList_from_Collection                          HashSet  avgt   10   247.193 ±   57.734  us/op
+map.LongKeyMap.get_ConcurrentHashMap                                        N/A  avgt   10    46.995 ±   50.102  ns/op
+map.LongKeyMap.get_NonBlockingHashMapLong                                   N/A  avgt   10    10.575 ±   12.575  ns/op
+map.MapGet.HashMap_toLowerCase                                              N/A  avgt   10   183.991 ±   64.473  ns/op
+map.MapGet.IgnoreCaseMap                                                    N/A  avgt   10    16.718 ±    1.202  ns/op
+map.MapGet.TreeMap                                                          N/A  avgt   10    96.781 ±   11.997  ns/op
+reflection.CreateNewInstance.conctructor_allocate                           N/A  avgt   10   150.205 ±   33.494  ns/op
+reflection.CreateNewInstance.find_constructor_allocate                      N/A  avgt   10  1038.993 ± 2091.425  ns/op
+reflection.CreateNewInstance.load_class_find_constructor_allocate           N/A  avgt   10  1651.128 ±  403.886  ns/op
+reflection.CreateNewInstance.new_allocate                                   N/A  avgt   10    81.863 ±   46.565  ns/op
