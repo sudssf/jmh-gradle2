@@ -27,4 +27,8 @@ public class ListGetBenchmarkJMH {
     public Integer get() {
         return list.get(index);
     }
+
+    public static void main(String[] args) {
+
+    }
 }
